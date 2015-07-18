@@ -1,0 +1,6 @@
+- name: To install components needed by Notification Real Time application
+  hosts: realtime
+  roles:
+    - epel
+    - node
+    - git

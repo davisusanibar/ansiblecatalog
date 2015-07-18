@@ -1,0 +1,5 @@
+---
+# tasks file for node
+- name: Installing node
+  yum: name=nodejs state=present enablerepo=epel
+  sudo: yes
