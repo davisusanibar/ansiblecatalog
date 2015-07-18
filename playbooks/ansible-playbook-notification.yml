@@ -1,6 +1,8 @@
 - name: To install components needed by Notification Real Time application
   hosts: realtime
   roles:
-    - epel
-    - node
-    - git
+    - role: epel
+    - role: node
+      nodejs_extra_modules:
+      - module: pm2
+    - role: git
