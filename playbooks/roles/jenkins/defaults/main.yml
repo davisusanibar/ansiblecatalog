@@ -1,0 +1,12 @@
+---
+jenkins_connection_delay: 5
+jenkins_connection_retries: 60
+jenkins_hostname: localhost
+jenkins_service_port: 8001
+jenkins_jar_location: /opt/jenkins-cli.jar
+jenkins_plugins:
+  - git
+  - ssh
+  - github
+  - gitlab-plugin
+  - nodejs

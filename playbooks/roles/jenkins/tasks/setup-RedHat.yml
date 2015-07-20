@@ -1,0 +1,23 @@
+---
+- name: Ensure dependencies are installed.
+  yum: pkg=curl state=installed
+
+- name: Ensure Jenkins repo is installed.
+  get_url:
+    url: "{{ jenkins_repo_url }}"
+    dest: /etc/yum.repos.d/jenkins.repo
+  sudo: yes
+
+- name: Add Jenkins repo GPG key.
+  rpm_key:
+    state: present
+    key: "{{ jenkins_repo_key_url }}"
+  sudo: yes
+
+- name: Ensure Jenkins is installed.
+  yum: pkg=jenkins state=installed
+  sudo: yes
+
+- name: Configure Jenkins Port
+  lineinfile: dest=/etc/sysconfig/jenkins regexp=^JENKINS_PORT= line=JENKINS_PORT={{jenkins_service_port}}
+  sudo: yes

@@ -11,3 +11,8 @@
     key: "{{ epel_repo_gpg_key_url }}"
     state: present
   sudo: yes
+
+- name: Installing RHEL extra packages
+  yum: name={{item.module}} state=installed enablerepo=epel
+  with_items: redhat_extra_module
+  sudo: yes

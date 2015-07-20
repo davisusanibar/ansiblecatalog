@@ -1,0 +1,8 @@
+- name: To install components related to CI
+  hosts: vecautomation
+  roles:
+    - role: epel
+      redhat_extra_module:
+        - module: libselinux-python
+    - role: jdkext
+    - role: jenkins
