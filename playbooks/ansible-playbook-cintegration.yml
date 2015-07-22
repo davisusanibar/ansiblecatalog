@@ -1,5 +1,5 @@
 - name: To install components related to CI
-  hosts: vecautomation
+  hosts: totestdemo
   roles:
     - role: epel
       redhat_extra_module:

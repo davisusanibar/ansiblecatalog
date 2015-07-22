@@ -1,0 +1,15 @@
+- name: Ensure RPM official nginx key
+  rpm_key: key=http://nginx.org/keys/nginx_signing.key
+  when: ansible_os_family == 'RedHat'
+
+- name: Ensure YUM official nginx repository
+  template: src=nginx.repo.j2 dest=/etc/yum.repos.d/nginx.repo
+  when: ansible_os_family == 'RedHat'
+
+- name: Ensure Nginx is installed.
+  yum: pkg=nginx state=installed enablerepo=epel
+  sudo: yes
+
+- name: Start nginx
+  command: nginx
+  sudo: yes

@@ -1,0 +1,4 @@
+---
+# defaults file for nginx
+nginx_port: 8002
+url_nginx_repo: http://nginx.org/packages/rhel/6/noarch/RPMS/nginx-release-rhel-6-0.el6.ngx.noarch.rpm
