@@ -1,0 +1,4 @@
+- name: Configure Blue-Green deployment
+  template: src=bluegreen.yml.j2 dest=/etc/nginx/bluegreenconfig
+  notify: reloadNginx
+  sudo: yes
