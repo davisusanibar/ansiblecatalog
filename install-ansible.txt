@@ -1,0 +1,14 @@
+Install RHEL on the provisioning server:
+
+Variables:
+epel_repo_url: "http://download.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+
+Declare:
+sudo yum install http://download.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
+sudo rpm --import {{epel_repo_gpg_key_url}}
+
+Commands:
+sudo yum install http://download.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+
