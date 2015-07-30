@@ -1,0 +1,4 @@
+- name: To install components needed by Notification Real Time application
+  hosts: vecautomation
+  roles:
+    - role: nginx

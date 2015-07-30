@@ -1,5 +1,5 @@
 - name: To install components related to CI
-  hosts: totestdemo
+  hosts: 192.168.1.9
   roles:
     - role: epel
       redhat_extra_module:
