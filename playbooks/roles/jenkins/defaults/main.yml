@@ -12,3 +12,5 @@ jenkins_plugins:
   - nodejs
   - job-import-plugin
   - publish-over-ssh
+  - ansible
+  - ssh-credentials

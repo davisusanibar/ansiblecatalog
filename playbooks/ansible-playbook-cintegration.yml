@@ -6,3 +6,4 @@
         - module: libselinux-python
     - role: jdkext
     - role: jenkins
+    - role: ansible
