@@ -10,3 +10,5 @@ jenkins_plugins:
   - github
   - gitlab-plugin
   - nodejs
+  - job-import-plugin
+  - publish-over-ssh

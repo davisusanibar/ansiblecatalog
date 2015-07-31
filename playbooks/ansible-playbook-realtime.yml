@@ -8,4 +8,6 @@
       nodejs_extra_modules:
       - module: pm2
       - module: express
+      - module: bower
+      - module: grunt
     - role: git

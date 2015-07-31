@@ -1,0 +1,7 @@
+- name: To install components needed by Notification Real Time application
+  hosts: loadbalancer
+  roles:
+    - role: epel
+      redhat_extra_module:
+        - module: libselinux-python
+    - role: nginx
