@@ -1,0 +1,4 @@
+---
+# tasks file for docker
+- name: Installing Docker
+  yum: name=docker

@@ -1,18 +1,25 @@
 ---
 # tasks file for epel
+- name: Validate if EPEL was installed
+  stat: path=/etc/yum.repos.d/epel.repo
+  register: epelstat
+
 - name: Install EPEL repo.
   yum:
     name: "{{ epel_repo_url }}"
     state: present
   sudo: yes
+  when: not epelstat.stat.exists
 
 - name: Import EPEL GPG key.
   rpm_key:
     key: "{{ epel_repo_gpg_key_url }}"
     state: present
   sudo: yes
+  when: not epelstat.stat.exists
 
 - name: Installing RHEL extra packages
   yum: name={{item.module}} state=installed enablerepo=epel
   with_items: redhat_extra_module
   sudo: yes
+  when: not epelstat.stat.exists
