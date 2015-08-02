@@ -12,6 +12,11 @@ Commands:
 sudo yum install http://download.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
 
+At Amazon EC2 was needed to execute:
+## RHEL/CentOS 6 64-Bit ##
+# wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+# rpm -ivh epel-release-6-8.noarch.rpm
+
 Install Ansible:
 sudo yum install ansible
 
