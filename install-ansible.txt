@@ -13,9 +13,17 @@ sudo yum install http://download.fedoraproject.org/pub/epel/epel-release-latest-
 sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
 
 At Amazon EC2 was needed to execute:
+-------------------- --------------          -------------------------------------------
 ## RHEL/CentOS 6 64-Bit ##
 # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 # rpm -ivh epel-release-6-8.noarch.rpm
+
+[root@ip-my-IP docker-gen]# sudo easy_install pip
+[root@ip-my-IP docker-gen]# sudo wget ftp://rpmfind.net/linux/dag/redhat/el6/en/x86_64/dag/RPMS/python-jinja2-2.2.1-1.el6.rf.x86_64.rpm
+[root@ip-my-IP docker-gen]# rpm -ivh python-jinja2-2.2.1-1.el6.rf.x86_64.rpm
+[root@ip-my-IP docker-gen]# sudo yum install python-jinja2
+[root@ip-my-IP docker-gen]# sudo yum install ansible
+-------------------- --------------          -------------------------------------------
 
 Install Ansible:
 sudo yum install ansible
