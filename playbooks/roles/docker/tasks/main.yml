@@ -7,3 +7,18 @@
 - name: start docker
   service: name=docker state=started
   sudo: yes
+
+- name: Installing
+  shell: >
+    curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose
+  args:
+    creates: /usr/bin/docker-compose
+  sudo: yes
+
+- name: Setting permissions
+  file:
+    path: /usr/bin/docker-compose
+    group: root
+    owner: root
+    mode: 0755
+  sudo: yes
