@@ -1,4 +1,9 @@
 ---
 # tasks file for docker
 - name: Installing Docker
-  yum: name=docker
+  yum: name=docker-io state=installed enablerepo=epel
+  sudo: yes
+
+- name: start docker
+  service: name=docker state=started
+  sudo: yes
