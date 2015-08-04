@@ -1,4 +1,4 @@
 - name: To execute Blue Green Deployment - CI
-  hosts: vecautomation
+  hosts: bluegreenserver
   roles:
     - role: bluegreen
