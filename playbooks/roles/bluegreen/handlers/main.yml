@@ -4,4 +4,4 @@
 
 - name: reloadNginx
   service: name=nginx state=reloaded
-  sudo: yes
+#  sudo: yes
