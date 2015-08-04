@@ -1,6 +1,7 @@
-- name: reloadNginx
-  command: service nginx reload
-  sudo: yes
-
 #- name: reloadNginx
-#  service: name=nginx state=restarted
+#  command: service nginx reload
+#  sudo: yes
+
+- name: reloadNginx
+  service: name=nginx state=restarted
+  sudo: yes
