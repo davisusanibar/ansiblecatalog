@@ -1,0 +1,10 @@
+---
+# tasks file for mongodb
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: configure.yml
+  when: ansible_os_family == 'RedHat'

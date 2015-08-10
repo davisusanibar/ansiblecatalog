@@ -9,5 +9,5 @@
       - module: pm2
       - module: express
       - module: bower
-      - module: grunt
+      - module: grunt-cli
     - role: git

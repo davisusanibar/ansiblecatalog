@@ -27,7 +27,7 @@
     java -jar {{ jenkins_jar_location }} -s http://{{ jenkins_hostname }}:{{jenkins_service_port}}/ install-plugin {{ item }}
     creates=/var/lib/jenkins/plugins/{{ item }}.jpi
   with_items: jenkins_plugins
-  notify: restart jenkin
+  notify: restart jenkins
 
 - name: Installing SSH Pass
   yum: name=sshpass state=installed enablerepo=epel  

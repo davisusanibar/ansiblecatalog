@@ -1,0 +1,32 @@
+- name: Configure mongodb
+  template: src=mongod.conf.j2 dest=/etc/mongod.conf owner=root group=root mode=0644
+  notify: mongodb restart
+  sudo: yes
+
+- name: Configure log rotation
+  template: src=logrotate.conf.j2 dest=/etc/logrotate.d/mongodb.conf
+  when: mongodb_logrotate
+  sudo: yes
+
+- name: Create mongodb group
+  group:
+    name: "{{ mongodb_user }}"
+    system: yes
+    state: present
+  sudo: yes
+
+- name: Create mongodb user
+  user: name={{mongodb_user}} group={{mongodb_user}}
+  sudo: yes
+
+- name: Configure database directory
+  file: state=directory path={{ mongodb_conf_dbpath }} owner={{mongodb_user}} group={{mongodb_user}} mode=0755
+  sudo: yes
+
+- name: Configure log directory
+  file: state=directory path={{ mongodb_conf_logpath | dirname }} owner={{mongodb_user}} group={{mongodb_user}} mode=0755
+  sudo: yes
+
+- name: Ensure mongodb is started
+  service: name={{ mongodb_daemon_name }} state=started enabled=yes
+  sudo: yes

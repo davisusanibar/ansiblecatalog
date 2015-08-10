@@ -1,7 +1,11 @@
 - name: To install components needed by Notification Real Time application
-  hosts: local
+  hosts: docker
   roles:
-    - role: epel
-      redhat_extra_module:
-        - module: libselinux-python
+    - role: util
     - role: docker
+    - role: node
+      nodejs_extra_modules:
+      - module: pm2
+      - module: express
+      - module: bower
+      - module: grunt-cli
