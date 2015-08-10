@@ -1,0 +1,5 @@
+---
+# defaults file for docker_bluegreen
+work_dir: /home/cloud/devops/git/personal/nodejs_apps_to_docker_balanced
+service_name: app
+number_of_service: 4

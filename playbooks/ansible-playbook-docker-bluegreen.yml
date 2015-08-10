@@ -1,0 +1,4 @@
+- name: To execute Blue Green Deployment - CI
+  hosts: docker_bluegreenserver
+  roles:
+    - role: docker_bluegreen
