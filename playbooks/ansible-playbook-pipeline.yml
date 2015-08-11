@@ -1,12 +1,9 @@
-- name: To install components related to CI
-  hosts: cintegration
+- name: To install components needed by Notification Real Time application
+  hosts: pipeline
   roles:
     - role: epel
       redhat_extra_module:
         - module: libselinux-python
-    - role: jdkext
-    - role: jenkins
-    - role: ansible
     - role: node
       nodejs_extra_modules:
       - module: pm2
@@ -14,4 +11,3 @@
       - module: bower
       - module: grunt-cli
     - role: git
-
