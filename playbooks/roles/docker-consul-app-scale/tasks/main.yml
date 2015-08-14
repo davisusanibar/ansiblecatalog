@@ -1,0 +1,5 @@
+---
+# tasks file for docker-consul-app-scale
+  - name: Scale app {{ service_to_scale }}
+    command: chdir={{ work_dir }} docker-compose scale {{ service_name }}={{ number_of_service }}
+    sudo: yes
