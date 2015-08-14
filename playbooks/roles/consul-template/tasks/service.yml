@@ -1,0 +1,3 @@
+- service: name=consul-template state=running enabled=yes
+  sudo: yes
+  sudo_user: root

@@ -1,0 +1,4 @@
+- name: To execute Blue Green Deployment - CI
+  hosts: host_docker_app_start
+  roles:
+    - role: docker-consul-app-start

@@ -1,5 +1,6 @@
 - name: To install components needed by Notification Real Time application
-  sudo: True
+#  sudo: True
+#  user: root
   hosts: docker
   roles:
     - role: util

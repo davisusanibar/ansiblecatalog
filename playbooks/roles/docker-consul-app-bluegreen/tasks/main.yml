@@ -1,0 +1,5 @@
+---
+# tasks file for docker-consul-app-bluegreen
+  - name: Set up status - blue or green
+    command: chdir={{ work_dir }} curl -X PUT -d {{ blue_green }} http://{{ consul_master_ip }}:8500/v1/kv/bluegreen/deploy
+    sudo: yes   

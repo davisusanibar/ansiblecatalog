@@ -1,0 +1,29 @@
+---
+# tasks file for docker-consul-app-start
+  - name: Build compose app
+    command: chdir={{ work_dir }} docker-compose build
+    sudo: yes
+        
+  - name: Start consul master service
+    command: chdir={{ work_dir }} docker-compose up -d consul
+    sudo: yes
+
+  - name: White for Consul start and open port 8300 to send http put request
+    wait_for: host={{ consul_master_ip }} port=8300 timeout=300 state=started
+    sudo: no
+
+  - name: White for Consul start and open port 8400 to send http put request
+    wait_for: host={{ consul_master_ip }} port=8400 timeout=300 state=started
+    sudo: no
+
+  - name: White for Consul start and open port 8500 to send http put request
+    wait_for: host={{ consul_master_ip }} port=8500 timeout=300 state=started
+    sudo: no
+
+  - name: Set up status (blue or green)
+    command: chdir={{ work_dir }} curl -X PUT -d {{ blue_green }} http://{{ consul_master_ip }}:8500/v1/kv/bluegreen/deploy
+    sudo: yes
+        
+  - name: Start all compose app services
+    command: chdir={{ work_dir }} docker-compose up -d --no-recreate
+    sudo: yes
