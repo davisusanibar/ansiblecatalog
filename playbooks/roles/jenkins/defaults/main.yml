@@ -19,3 +19,5 @@ jenkins_plugins:
   - Parameterized-Remote-Trigger
   - call-remote-job-plugin
   - parameterized-trigger
+  - multiple-scms
+  - ssh-agent

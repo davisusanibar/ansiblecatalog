@@ -2,12 +2,6 @@
   sudo: True
   hosts: docker
   roles:
+    - role: epel
     - role: util
     - role: docker
-    - role: consul-template
-    - role: node
-      nodejs_extra_modules:
-      - module: pm2
-      - module: express
-      - module: bower
-      - module: grunt-cli

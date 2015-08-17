@@ -4,11 +4,24 @@
   yum: name=docker-io state=installed enablerepo=epel
   sudo: yes
 
-- name: start docker
-  service: name=docker state=started
+- name: Start docker
+  shell: systemctl start docker.service && sleep 4
   sudo: yes
 
-- name: Installing
+- name: Enable docker
+  shell: systemctl enable docker.service && sleep 4
+  sudo: yes
+
+- name: configure docker daemon options
+  template:
+    src: docker.j2
+    dest: /etc/sysconfig/docker
+  notify:
+    - Restart docker
+  when: ansible_os_family == "RedHat"
+  sudo: yes
+
+- name: Installing docker-compose
   shell: >
     curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose
   args:
